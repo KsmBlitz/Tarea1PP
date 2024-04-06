@@ -1,18 +1,14 @@
-#include "string"
+#include "vehiculo.h"
 
-class vehiculo{
-    private:
-        int ruedas;
-        std::string marca;
-        bool remoto;
-        int fecha_fabriacion;
-        int valor_vehiculo;
-        int valor_articulos = 0;
+int vehiculo::calcular_valor(){ //Corregir implementacion
+    return 1000;
+}
 
-    public:
-
-        vehiculo(int ruedas,std::string marca,int fecha_fabriacion, int valor_vehiculos, int valor_articulos){
-
-        }
-
-};
+//Utilizar una V antes del nombre de la variable para diferenciar entre valores ya existentes y valores nuevos
+vehiculo::vehiculo(int vruedas,std::string vmarca,bool vremoto, int vanio_fabricacion){
+    this->ruedas = vruedas;
+    this->marca = vmarca;
+    this->remoto = vremoto;
+    this->anio_fabricacion = vanio_fabricacion;
+    this->valor_vehiculo = calcular_valor();
+}

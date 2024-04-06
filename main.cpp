@@ -4,7 +4,7 @@
 
 int main(){
 
-    std::cout << valores->luces;
+    moto moto1 = new moto();
 
     return 0;
 }

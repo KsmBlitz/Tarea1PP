@@ -1,4 +1,4 @@
-#include "vehiculo.cpp"
-#include "automovil.cpp"
+#include "automovil.h"
+#include "camion.h"
+#include "moto.h"
 #include "moto.cpp"
-#include "camion.cpp"
