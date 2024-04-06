@@ -1,7 +1,9 @@
 #include "vehiculo.cpp"
-class auto : public vehiculo{
+
+class automovil : public vehiculo{
 	private:
 		int puertas;
 		int luces;
 	
+	public:
 };
