@@ -12,3 +12,7 @@ vehiculo::vehiculo(int vruedas,std::string vmarca,bool vremoto, int vanio_fabric
     this->anio_fabricacion = vanio_fabricacion;
     this->valor_vehiculo = calcular_valor();
 }
+
+void vehiculo::mostrarse(){
+    std::cout << this->marca << " " << this->anio_fabricacion << " " << this->valor_vehiculo << " " << this->ruedas;
+}

@@ -2,6 +2,7 @@
 #define VEHICULO_H
 
 #include <string>
+#include <iostream>
 
 class vehiculo{
     protected:
@@ -16,6 +17,8 @@ class vehiculo{
         vehiculo(int vruedas, std::string vmarca, bool vremoto, int vanio_fabriacion);
         
         int calcular_valor();
+
+        void mostrarse();
 };
 
 #endif
