@@ -1,3 +1,6 @@
-Honda, 120000
-Susuki, 1230
-BMW, 1298391
+Toyota: 19000
+Hyunday: 16000 
+Susuki: 12000 
+Ford: 17000 
+Chevrolet: 18000 
+Honda: 21000

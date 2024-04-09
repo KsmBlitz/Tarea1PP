@@ -9,6 +9,7 @@ class camion : public vehiculo {
         int ejes; //cantidad de ejes
     public:
         camion(int vruedas, std::string vmarca, bool vremoto, int vfecha_fabriacion, int vcajas, int vejes);
+        ~camion();
 };
 
 

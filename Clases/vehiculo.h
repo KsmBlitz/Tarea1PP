@@ -3,6 +3,8 @@
 
 #include <string>
 #include <iostream>
+#include <map>
+#include "../Valores/valores.h"
 
 class vehiculo{
     protected:
@@ -10,11 +12,12 @@ class vehiculo{
         std::string marca; //nombre de la marca
         bool remoto; //si tiene control remoto o no
         int anio_fabricacion; //año de fabricacion 
-        int valor_vehiculo = calcular_valor();
+        int valor_vehiculo = calcular_valor(); 
         int valor_articulos = 0;
         
     public:
         vehiculo(int vruedas, std::string vmarca, bool vremoto, int vanio_fabriacion);
+        ~vehiculo();
         int calcular_valor();
         void mostrarse();
 };

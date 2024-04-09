@@ -7,4 +7,14 @@ moto::moto(int vruedas,std::string vmarca,bool vremoto,int vanio_fabricacion,int
         this->espejos = vespejos;
     }
 
+int vehiculo::calcular_valor(){
+
+    std::map<std::string,int> valores = cargar_valores_motos();
+    for (auto it = valores.begin(); it != valores.end(); ++it){
+        if (it->first == this->marca){
+            return it->second;
+        }
+    }
+    return -1;
+}
 

@@ -3,6 +3,7 @@
 
 #include "vehiculo.h"
 
+
 class moto : public vehiculo{
     protected:
         int pedales; //cantidad de pedales
@@ -10,6 +11,7 @@ class moto : public vehiculo{
 
     public:
         moto(int vruedas,std::string vmarca,bool vremoto,int vanio_fabriacion,int vpedales,int vespejos);
+        ~moto();
 };
 
 #endif

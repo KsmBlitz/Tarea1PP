@@ -3,11 +3,8 @@
 
 int main(){
 
-    std::map<std::string,int> valores_autos = cargar_valores_autos();
-
-    for (auto it = valores_autos.begin(); it != valores_autos.end(); ++it){
-        std::cout << it->first << ": " << it->second << "\n";
-    }
+    moto* moto1 = new moto(2,"Kawasaki", false, 2024, 2,2);
+    moto1->mostrarse();
 
     return 0;
 }

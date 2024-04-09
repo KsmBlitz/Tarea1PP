@@ -12,7 +12,7 @@ std::map<std::string, int> cargar_valores(std::string filename){
         std::stringstream ss(linea);
         std::string clave, marca;
         int valor;
-        std::getline(ss, clave,',');
+        std::getline(ss, clave,':');
         marca = clave;    
         ss >> valor;       
         
