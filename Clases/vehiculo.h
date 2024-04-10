@@ -14,9 +14,10 @@ class vehiculo{
         int anio_fabricacion; //año de fabricacion 
         int valor_vehiculo = calcular_valor(); 
         int valor_articulos = 0;
+        int unidades; //cantidad de unidades del mismo tipo
         
     public:
-        vehiculo(int vruedas, std::string vmarca, bool vremoto, int vanio_fabriacion);
+        vehiculo(int vruedas, std::string vmarca, bool vremoto, int vanio_fabriacion, int vunidades);
         ~vehiculo();
         int calcular_valor();
         void mostrarse();
