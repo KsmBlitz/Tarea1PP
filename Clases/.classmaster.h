@@ -4,4 +4,3 @@
 #include "camion.h"
 #include "accesorio.h"
 #include "venta.h"
-#include "../Valores/valores.h"
