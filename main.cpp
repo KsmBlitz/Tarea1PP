@@ -1,9 +1,8 @@
 //Clases
-#include "classmaster.h"
+#include "Clases\.classmaster.h"
 
 int main(){
 
-    
 
     return 0;
 }

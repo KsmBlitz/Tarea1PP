@@ -1,0 +1,7 @@
+#include "automovil.h"
+#include "vehiculo.h"
+#include "moto.h"
+#include "camion.h"
+#include "accesorio.h"
+#include "venta.h"
+#include "../Valores/valores.h"
