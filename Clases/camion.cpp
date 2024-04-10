@@ -5,7 +5,7 @@ camion::camion(int vruedas, std::string vmarca, bool vremoto, int vfecha_fabriac
     vehiculo(vruedas, vmarca, vremoto, vfecha_fabriacion, vunidades){
     }
 
-int vehiculo::calcular_valor(){
+int camion::calcular_valor(){
 
     std::map<std::string,int> valores = cargar_valores_camiones();
     for (auto it = valores.begin(); it != valores.end(); ++it){

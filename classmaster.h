@@ -2,4 +2,6 @@
 #include "Clases/vehiculo.h"
 #include "Clases/moto.h"
 #include "Clases/camion.h"
+#include "Clases/accesorio.h"
+#include "Clases/venta.h"
 #include "Valores/valores.h"

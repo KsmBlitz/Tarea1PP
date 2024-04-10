@@ -9,6 +9,7 @@ class automovil : public vehiculo {
     public:
         automovil(int vruedas, std::string vmarca, bool vremoto, int vanio_fabriacion, int vunidades);
         ~automovil();
+        int calcular_valor() override;
 };
 
 #endif

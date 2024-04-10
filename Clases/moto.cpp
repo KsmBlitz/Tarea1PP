@@ -5,7 +5,7 @@ moto::moto(int vruedas,std::string vmarca,bool vremoto,int vanio_fabricacion, in
     vehiculo(vruedas, vmarca, vremoto, vanio_fabricacion, vunidades) {
     }
 
-int vehiculo::calcular_valor(){
+int moto::calcular_valor(){
     std::map<std::string,int> valores = cargar_valores_motos();
     for (auto it = valores.begin(); it != valores.end(); ++it){
         if (it->first == this->marca){

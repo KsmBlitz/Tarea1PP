@@ -19,7 +19,8 @@ class vehiculo{
     public:
         vehiculo(int vruedas, std::string vmarca, bool vremoto, int vanio_fabriacion, int vunidades);
         ~vehiculo();
-        int calcular_valor();
+        virtual int calcular_valor();
+        int calcular_valor_total();
         void mostrarse();
 };
 

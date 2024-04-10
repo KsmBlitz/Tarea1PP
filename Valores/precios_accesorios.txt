@@ -1,0 +1,6 @@
+Puerta: 1000
+Luce: 600
+Pedale: 1000
+Espejo: 8000
+Caja: 10000
+Eje: 8000
