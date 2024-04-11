@@ -8,7 +8,7 @@ class moto : public vehiculo{
     protected:
 
     public:
-        moto(int vruedas,std::string vmarca,bool vremoto,int vanio_fabriacion, int vunidades);
+        moto(std::string vmarca,bool vremoto,int vanio_fabriacion, int vunidades);
         ~moto();
         int calcular_valor() override;
 };

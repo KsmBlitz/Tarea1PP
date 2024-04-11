@@ -53,9 +53,23 @@ std::map<std::string, int> cargar_valores_accesorios(){
     return valores_accesorios;
 }
 
-//Mostrar Precios de Vehiculos
-void mostrarPreciosVehiculos(){
+//Retorna false o true si la marca existe dentro del mapa
+bool enStock(std::map<std::string, int> valores, std::string marca){
+    for (auto it = valores.begin(); it != valores.end(); ++it){
+        if (it->first == marca){
+            return true;
+        }
+    }
+    return false;
+}
 
+
+//Mostrar Precios de Vehiculos
+void mostrarPreciosVehiculos(std::map<std::string,int> valores){
+    //Recorrer el mapa y mostrar los valores en el formato "NombreMarca: $Precio"
+    for (auto it = valores.begin(); it != valores.end(); ++it){
+        std::cout << it->first <<": $" << it->second << "\n";
+    }
 }
 
 //Mostrar Precios de Accesorios

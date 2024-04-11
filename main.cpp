@@ -1,23 +1,23 @@
 //Clases
-#include "Clases\.classmaster.h"
-#include "Clases\.funciones.h"
+#include "Clases\venta.h"
 
 
 int main(){
-
+    venta* boleta = new venta();
     int opcion;
     while(true){
         std::cout << "\nMenu Principal:\n";
-        std::cout << "1. Venta de Vehículos\n";
+        std::cout << "1. Venta de Vehiculos\n";
         std::cout << "2. Venta de Accesorios\n";
         std::cout << "3. Promedio de Ventas\n";
-        std::cout << "4. Cantidad de Vehículos Comprados\n";
+        std::cout << "4. Cantidad de Vehiculos Comprados\n";
         std::cout << "5. Salir\n";
         std::cout << "Ingrese una opcion: ";
         std::cin >> opcion;
 
         switch (opcion) {
         case 1:
+            boleta->menuVentaVehiculo();
             break;
         case 2:
             break;

@@ -1,8 +1,10 @@
 #include "camion.h"
 
 //Utilizar una V antes del nombre de la variable para diferenciar entre valores ya existentes y valores nuevos
-camion::camion(int vruedas, std::string vmarca, bool vremoto, int vfecha_fabriacion, int vunidades) :
-    vehiculo(vruedas, vmarca, vremoto, vfecha_fabriacion, vunidades){
+camion::camion(std::string vmarca, bool vremoto, int vanio_fabriacion, int vunidades) :
+    vehiculo(vmarca, vremoto, vanio_fabriacion, vunidades){
+        this->ruedas = 6;
+        this->valor_vehiculo = calcular_valor();
     }
 
 int camion::calcular_valor(){

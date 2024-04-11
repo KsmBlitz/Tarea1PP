@@ -17,7 +17,9 @@ std::map<std::string, int> cargar_valores_camiones();
 
 std::map<std::string, int> cargar_valores_accesorios();
 
-void mostrarPreciosVehiculos();
+bool enStock(std::map<std::string, int> valores, std::string marca);
+
+void mostrarPreciosVehiculos(std::map<std::string,int> valores);
 
 void mostrarPreciosAccesorios();
 
