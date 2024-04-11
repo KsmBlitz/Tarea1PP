@@ -45,21 +45,21 @@ void venta::agregar_accesorio(accesorio* accesorio){
 }
 
 
-int venta::creacionVehiculo(int opcion, std::string marca, int remoto, int unidades){
-    vehiculo* vehiculo_a_comprar;
+int venta::creacionVehiculo(int opcion, std::string marca, std::string remoto, int unidades){
+    vehiculo* vehiculo_a_comprar = nullptr;
     int confirmacion = 0;
     if (opcion == 1) {
-        automovil* vehiculo_a_comprar = new automovil(marca, remoto, 2024, unidades);
+        vehiculo_a_comprar = new automovil(marca, remoto, 2024, unidades);
     }else if (opcion == 2) {
-        moto* vehiculo_a_comprar = new moto(marca, remoto, 2024, unidades);
+        vehiculo_a_comprar = new moto(marca, remoto, 2024, unidades);
     }else {
-        camion* vehiculo_a_comprar = new camion(marca, remoto, 2024, unidades);
+        vehiculo_a_comprar = new camion(marca, remoto, 2024, unidades);
     }
 
     do {
         vehiculo_a_comprar->mostrarse();
         std::cout << "\n\nEsta informacion es correcta?\n"<<"1.si\n2.no";
-        std::cout << "\nOpcion";
+        std::cout << "\nOpcion: ";
         std::cin >> confirmacion;
         if (confirmacion != 1 && confirmacion != 2) {
             std::cout << "\n\nFavor de seleccionar una opcion valida";
@@ -69,7 +69,7 @@ int venta::creacionVehiculo(int opcion, std::string marca, int remoto, int unida
 
     if (confirmacion == 1) {
         this->agregar_vehiculo(vehiculo_a_comprar);
-        return confirmacion;
+        return 1;
     } else {
         return 0;
     }
@@ -103,15 +103,16 @@ void venta::menuVentaVehiculo(){
             break;
         }
     } while (opcion == 0);
-    std::cout << "\n\n Valores de "<< tipoVehiculo << " por Marca: \n";
-    mostrarPreciosVehiculos(valores);
-    std::cout << "\n";
+    
     
     //Proceso seleccion de vehiculo
     int confirmacion = 0;
     do {
         //Seleccion de marca del vehiculo
+        std::cout << "\n\n Valores de "<< tipoVehiculo << " por Marca: \n";
+        mostrarPreciosVehiculos(valores);
         std::string marca = "";
+
         do {
             std::cout << "\nEscriba la marca a comprar: ";
             std::cin >> marca;
@@ -124,7 +125,7 @@ void venta::menuVentaVehiculo(){
         //Seleccion de las unidades del vehiculo
         int unidades = 0;
         do {
-            std::cout << "\nCuantas unidades de"<< tipoVehiculo << " " << marca << " Quiere?";
+            std::cout << "\nCuantas unidades de "<< tipoVehiculo << " " << marca << " Quiere?";
             std::cout << "\nunidades: ";
             std::cin >> unidades;
             if (unidades <= 0) {
@@ -136,23 +137,28 @@ void venta::menuVentaVehiculo(){
         //Seleccion control remoto del vehiculo
         int remoto = 0;
         do {
-            std::cout << "\nDesea su vehiculo a control remoto?" <<"\n1.si     2.no";
-            std::cout << "\nOpcion";
+            std::cout << "\nDesea su vehiculo a control remoto?" <<"\n1.si\n2.no";
+            std::cout << "\nOpcion: ";
             std::cin >> remoto;
             if (remoto != 1 && remoto != 2) {
-                std::cout << "\n\nFavor escoger una cantidad valida\n\n";
+                std::cout << "\n\nFavor escoger una opcion valida\n\n";
                 remoto = 0;
             }
         } while (remoto == 0);
+        std::string strremoto = "";
+        if (remoto == 1) {
+            strremoto = "si";
+        } else {
+            strremoto = "no";
+        }
         
-        
-
-        int confirmacion = this->creacionVehiculo(opcion, marca, remoto, unidades);
+        confirmacion = this->creacionVehiculo(opcion, marca, strremoto, unidades);
 
     } while (confirmacion == 0);
 
     std::cout << "\nSe ha agregado exitosamente el vehiculo a la lista";
-
+    
+    
     this->opcionAContinuacion();
 }
 

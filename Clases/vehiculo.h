@@ -17,7 +17,7 @@ class vehiculo{
         int unidades; //cantidad de unidades del mismo tipo
         
     public:
-        vehiculo(std::string vmarca, int vremoto, int vanio_fabriacion, int vunidades);
+        vehiculo(std::string vmarca, std::string vremoto, int vanio_fabriacion, int vunidades);
         ~vehiculo();
         virtual int calcular_valor();
         int calcular_valor_total();

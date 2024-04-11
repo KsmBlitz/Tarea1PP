@@ -7,7 +7,7 @@ class automovil : public vehiculo {
     protected:
 
     public:
-        automovil(std::string vmarca, bool vremoto, int vanio_fabriacion, int vunidades);
+        automovil(std::string vmarca, std::string vremoto, int vanio_fabriacion, int vunidades);
         ~automovil();
         int calcular_valor() override;
 };

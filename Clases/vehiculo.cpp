@@ -1,19 +1,18 @@
 #include "vehiculo.h"
 
 //Utilizar una V antes del nombre de la variable para diferenciar entre valores ya existentes y valores nuevos
-vehiculo::vehiculo(std::string vmarca,int vremoto, int vanio_fabricacion, int vunidades){
+vehiculo::vehiculo(std::string vmarca,std::string vremoto, int vanio_fabricacion, int vunidades){
     this->marca = vmarca;
-    if (vremoto == 1) {
-        this->remoto = "si";
-    } else {
-        this->remoto = "no";
-    }
+    this->remoto = vremoto;
     this->anio_fabricacion = vanio_fabricacion;
     this->unidades = vunidades;
 }
 
+vehiculo::~vehiculo(){
+}
+
 void vehiculo::mostrarse(){
-    std::cout <<"Marca: "<< this->marca << "\nRuedas: " << this->ruedas;
+    std::cout <<"\n\nMarca: "<< this->marca << "\nRuedas: " << this->ruedas;
     std::cout <<"\nControl remoto: " << this->remoto << "\nUnidades: " << this->ruedas;
     std::cout <<"\nPrecio: " << this->calcular_valor_total();
 }

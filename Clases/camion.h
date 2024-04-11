@@ -7,7 +7,7 @@ class camion : public vehiculo {
     protected:
     
     public:
-        camion(std::string vmarca, bool vremoto, int vfecha_fabriacion, int vunidades);
+        camion(std::string vmarca, std::string vremoto, int vfecha_fabriacion, int vunidades);
         ~camion();
         int calcular_valor() override;
 };

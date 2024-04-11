@@ -26,7 +26,7 @@ class venta {
         void agregar_vehiculo(vehiculo* vvehiculo);
         void agregar_accesorio(accesorio* vaccesorio);
 
-        int creacionVehiculo(int opcion, std::string marca, int remoto, int unidades);
+        int creacionVehiculo(int opcion, std::string marca, std::string remoto, int unidades);
         void menuVentaVehiculo();
 
         void menuVentaAccesorio();

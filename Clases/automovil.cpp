@@ -2,7 +2,7 @@
 
 
 //Utilizar una V antes del nombre de la variable para diferenciar entre valores ya existentes y valores nuevos
-automovil::automovil(std::string vmarca, bool vremoto, int vanio_fabriacion, int vunidades) : 
+automovil::automovil(std::string vmarca, std::string vremoto, int vanio_fabriacion, int vunidades) : 
 	vehiculo(vmarca, vremoto, vanio_fabriacion, vunidades) {
         this->ruedas = 4;
         this->valor_vehiculo = calcular_valor();
