@@ -1,6 +1,8 @@
 #ifndef VALORES_H
 #define VALORES_H
 
+
+#include <vector>
 #include <map>
 #include <string>
 #include <fstream>
@@ -19,8 +21,7 @@ std::map<std::string, int> cargar_valores_accesorios();
 
 bool enStock(std::map<std::string, int> valores, std::string marca);
 
-void mostrarPreciosVehiculos(std::map<std::string,int> valores);
+void mostrarPrecios(std::map<std::string,int> valores);
 
-void mostrarPreciosAccesorios();
 
 #endif

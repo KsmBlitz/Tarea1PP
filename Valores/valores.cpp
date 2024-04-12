@@ -65,14 +65,9 @@ bool enStock(std::map<std::string, int> valores, std::string marca){
 
 
 //Mostrar Precios de Vehiculos
-void mostrarPreciosVehiculos(std::map<std::string,int> valores){
+void mostrarPrecios(std::map<std::string,int> valores){
     //Recorrer el mapa y mostrar los valores en el formato "NombreMarca: $Precio"
     for (auto it = valores.begin(); it != valores.end(); ++it){
         std::cout << it->first <<": $" << it->second << "\n";
     }
-}
-
-//Mostrar Precios de Accesorios
-void mostrarPreciosAccesorios(){
-
 }

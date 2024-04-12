@@ -1,6 +1,6 @@
-Puerta: 1000
-Luce: 600
-Pedale: 1000
-Espejo: 8000
-Caja: 10000
-Eje: 8000
+Puertas: 1000
+Luces: 600
+Pedales: 1000
+Espejos: 8000
+Cajas: 10000
+Ejes: 8000

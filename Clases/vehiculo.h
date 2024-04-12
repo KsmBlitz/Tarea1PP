@@ -1,10 +1,6 @@
 #ifndef VEHICULO_H
 #define VEHICULO_H
 
-#include <string>
-#include <iostream>
-#include <map>
-#include <vector>
 #include "../Valores/valores.h"
 
 class vehiculo{
@@ -22,6 +18,7 @@ class vehiculo{
         virtual int calcular_valor();
         int calcular_valor_total();
         void mostrarse();
+        int getUnidades();
 };
 
 #endif

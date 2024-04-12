@@ -13,8 +13,10 @@ class accesorio {
     public:
     accesorio(std::string nombre, int unidades);
     ~accesorio();
+    void mostrarse();
     int calcular_valor();
     int calcular_valor_total();
+    int getUnidades();
 
 };
 

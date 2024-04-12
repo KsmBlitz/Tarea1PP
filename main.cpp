@@ -20,6 +20,7 @@ int main(){
             boleta->menuVentaVehiculo();
             break;
         case 2:
+            boleta->menuVentaAccesorio();
             break;
         case 3:
             break;

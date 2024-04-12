@@ -1,21 +1,26 @@
 #include "venta.h"
 
+
 venta::venta(){
 }
 
-void venta::asignarRun(std::string vrun){
+
+void venta::setRun(std::string vrun){
     this->run = vrun;
 }
+void venta::setNombre(std::string vnombre){
+    this->nombre = vnombre;
+}
 
-int venta::calcularTotalVehiculos(){
+
+int venta::calcularValorTotalVehiculos(){
     int total = 0;
     for (vehiculo* vehiculo_actual : this->listaVehiculos){
         total += vehiculo_actual->calcular_valor_total();
     }
     return total;
 }
-
-int venta::calcularTotalAccesorios(){
+int venta::calcularValorTotalAccesorios(){
     int total = 0;
     for (accesorio* accesorio_actual : this->listaAccesorios){
         total += accesorio_actual->calcular_valor_total();
@@ -23,8 +28,28 @@ int venta::calcularTotalAccesorios(){
     return total;
 }
 
+
+int venta::calcularCantidadTotalVehiculos(){
+    int total = 0;
+    for (vehiculo* vehiculo_actual : this->listaVehiculos){
+        total += vehiculo_actual->getUnidades();
+    }
+    return total;
+}
+int venta::calcularCantidadTotalAccesorios(){
+    int total = 0;
+    for (accesorio* accesorio_actual : this->listaAccesorios){
+        total += accesorio_actual->getUnidades();
+    }
+    return total;
+}
+
+
 int venta::calcularDescuento(){
-    int unidades = this->listaVehiculos.size();
+    int unidades = 0;
+    for (vehiculo* vehiculo_actual : this->listaVehiculos){
+        unidades += vehiculo_actual->getUnidades();
+    }
     if (unidades > 10000) {
         return 0.1;
     } else if (unidades >= 5000) {
@@ -36,10 +61,10 @@ int venta::calcularDescuento(){
     }
 }
 
+
 void venta::agregar_vehiculo(vehiculo* vehiculo){
     this->listaVehiculos.push_back(vehiculo);
 }
-
 void venta::agregar_accesorio(accesorio* accesorio){
     this->listaAccesorios.push_back(accesorio);
 }
@@ -74,7 +99,6 @@ int venta::creacionVehiculo(int opcion, std::string marca, std::string remoto, i
         return 0;
     }
 }
-
 void venta::menuVentaVehiculo(){
     //Parte de la creacion de menu y muestra de valores
     std::map<std::string,int> valores;
@@ -110,7 +134,7 @@ void venta::menuVentaVehiculo(){
     do {
         //Seleccion de marca del vehiculo
         std::cout << "\n\n Valores de "<< tipoVehiculo << " por Marca: \n";
-        mostrarPreciosVehiculos(valores);
+        mostrarPrecios(valores);
         std::string marca = "";
 
         do {
@@ -125,7 +149,7 @@ void venta::menuVentaVehiculo(){
         //Seleccion de las unidades del vehiculo
         int unidades = 0;
         do {
-            std::cout << "\nCuantas unidades de "<< tipoVehiculo << " " << marca << " Quiere?";
+            std::cout << "\nCuantas unidades de "<< tipoVehiculo << " " << marca << " quiere?";
             std::cout << "\nunidades: ";
             std::cin >> unidades;
             if (unidades <= 0) {
@@ -162,10 +186,12 @@ void venta::menuVentaVehiculo(){
     this->opcionAContinuacion();
 }
 
+
 void venta::opcionAContinuacion(){
     int opcion = 0;
     do {
         std::cout <<"\n\nQue desea hacer a continuacion\n" << "1.Comprar otro vehiculo\n2.Comprar accesorios\n3.Finalizar compra";
+        std::cout <<"\nOpcion: ";
         std::cin >> opcion;
         if (opcion != 1 && opcion != 2 && opcion != 3) {
             std::cout << "\n\nFavor de escoger un valor valido\n\n";
@@ -190,11 +216,89 @@ void venta::opcionAContinuacion(){
     }
 
 }
-    
+
+
 void venta::menuVentaAccesorio(){
-    
+    std::map<std::string,int> valores = cargar_valores_accesorios();
+    accesorio* accesorio_actual = nullptr;
+    //Menu de seleccion accesorio
+    int confirmacion = 2;
+    do {
+        //Menu de nombre de accesorio
+        
+        std::string nombre_accesorio = "";
+        do {
+            std::cout << "\n";
+            mostrarPrecios(valores);
+            std::cout << "\nIngrese el nombre del accesorio a comprar: ";
+            std::cin >> nombre_accesorio;
+            if (!enStock(valores, nombre_accesorio)){
+                std::cout << "\n\nFAVOR SELECCIONAR UN PRODUCTO VALIDO\n\n";
+                nombre_accesorio = "";
+            }
+        } while (nombre_accesorio== "");
+
+        //Menu de seleccion unidades
+        int unidades = 0;
+        do {
+            std::cout << "\nCuantas unidades de "<< nombre_accesorio <<" quiere?";
+            std::cout << "\nunidades: ";
+            std::cin >> unidades;
+            if (unidades <= 0) {
+                std::cout << "\n\nFavor escoger una cantidad valida\n\n";
+                unidades = 0;
+            }
+        } while (unidades <= 0);
+
+        accesorio* accesorio_actual = new accesorio(nombre_accesorio, unidades);
+
+        //Menu de confirmacion
+        do {
+            accesorio_actual->mostrarse();  
+            std::cout << "\n\nEsta informacion es correcta?\n1.si\n2.no\nopcion: ";
+            std::cin >> confirmacion;
+            if (confirmacion != 1 && confirmacion != 2){
+                std::cout << "\n\nFAVOR DE SELECCIONAR UNA OPCION VALIDA\n\n";
+                confirmacion = 0;
+            }
+        } while (confirmacion == 0);
+
+    } while (confirmacion == 2);
+
+    this->agregar_accesorio(accesorio_actual);
+    std::cout << "\nSe ha agregado exitosamente un accesorio a la lista\n";
+    this->opcionAContinuacion();
 }
 
-void venta::finalizarCompra(){
 
+void venta::finalizarCompra(){
+    std::string run;
+    std::string nombre;
+    std::cout << "\nIngrese nombre del cliente: ";
+    std::cin >> nombre;
+    this->setNombre(nombre);
+    std::cout << "\nIngrese run cliente: ";
+    std::cin >> run;
+    this->setRun(run);
+
+    this->imprimirArchivo(); 
+}
+
+
+void venta::imprimirArchivo(){
+    std::ofstream archivo("Clientes.txt");
+    archivo << this->nombre << ", " << this->run << ", " << this->cantidadVehiculos << ", " << this->cantidadAccesorios;
+    archivo << this->totalVehiculos << ", " << this->totalAccesorios << ", " << this->totalVehiculos*this->descuento << ", ";
+    archivo << this->totalVenta << std::endl;
+    archivo.close();
+    std::cout << "\n\nBoleta emitida exitosamete\n\n";
+    this->limpiarBoleta();
+}
+
+
+void venta::limpiarBoleta(){
+    this->nombre = "";
+    this->run = "";
+    this->listaAccesorios.clear();
+    this->listaVehiculos.clear();
 }

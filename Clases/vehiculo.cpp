@@ -11,6 +11,10 @@ vehiculo::vehiculo(std::string vmarca,std::string vremoto, int vanio_fabricacion
 vehiculo::~vehiculo(){
 }
 
+int vehiculo::getUnidades(){
+    return this->unidades;
+}
+
 void vehiculo::mostrarse(){
     std::cout <<"\n\nMarca: "<< this->marca << "\nRuedas: " << this->ruedas;
     std::cout <<"\nControl remoto: " << this->remoto << "\nUnidades: " << this->ruedas;
