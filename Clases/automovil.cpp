@@ -8,6 +8,10 @@ automovil::automovil(std::string vmarca, std::string vremoto, int vanio_fabriaci
         this->valor_vehiculo = calcular_valor();
 	}
 
+automovil::~automovil(){
+    
+}
+
 int automovil::calcular_valor(){
     std::map<std::string,int> valores = cargar_valores_autos();
     for (auto it = valores.begin(); it != valores.end(); ++it){

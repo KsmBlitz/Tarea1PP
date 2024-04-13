@@ -7,6 +7,10 @@ camion::camion(std::string vmarca, std::string vremoto, int vanio_fabriacion, in
         this->valor_vehiculo = calcular_valor();
     }
 
+camion::~camion(){
+    
+}
+
 int camion::calcular_valor(){
 
     std::map<std::string,int> valores = cargar_valores_camiones();

@@ -27,7 +27,9 @@ int venta::calcularValorTotalAccesorios(){
     }
     return total;
 }
-
+int venta::calcularValorDescuentoVehiculos(){
+    return this->totalVehiculos - (this->totalVehiculos*this->descuento);
+}
 
 int venta::calcularCantidadTotalVehiculos(){
     int total = 0;
@@ -45,7 +47,7 @@ int venta::calcularCantidadTotalAccesorios(){
 }
 
 
-int venta::calcularDescuento(){
+double venta::calcularDescuento(){
     int unidades = 0;
     for (vehiculo* vehiculo_actual : this->listaVehiculos){
         unidades += vehiculo_actual->getUnidades();
@@ -250,7 +252,7 @@ void venta::menuVentaAccesorio(){
             }
         } while (unidades <= 0);
 
-        accesorio* accesorio_actual = new accesorio(nombre_accesorio, unidades);
+        accesorio_actual = new accesorio(nombre_accesorio, unidades);
 
         //Menu de confirmacion
         do {
@@ -285,11 +287,30 @@ void venta::finalizarCompra(){
 }
 
 
+void venta::actualizarInformacion(){
+    this->totalVehiculos = this->calcularValorTotalVehiculos();
+    this->totalAccesorios = this->calcularValorTotalAccesorios();
+    this->cantidadVehiculos = this->calcularCantidadTotalVehiculos();
+    this->cantidadAccesorios = this->calcularCantidadTotalAccesorios();
+    this->descuento = this->calcularDescuento();
+    this->totalVenta = this->totalAccesorios + this->calcularValorDescuentoVehiculos();
+}
+
+
 void venta::imprimirArchivo(){
-    std::ofstream archivo("Clientes.txt");
-    archivo << this->nombre << ", " << this->run << ", " << this->cantidadVehiculos << ", " << this->cantidadAccesorios;
-    archivo << this->totalVehiculos << ", " << this->totalAccesorios << ", " << this->totalVehiculos*this->descuento << ", ";
-    archivo << this->totalVenta << std::endl;
+    std::cout <<"actualizano";
+    this->actualizarInformacion();
+    std::cout <<"actualizado";
+    std::ofstream archivo("Clientes.txt",std::ios::app);
+    archivo << std::endl;
+    archivo << this->nombre << ", ";
+    archivo << this->run << ", "; 
+    archivo << this->cantidadVehiculos << ", "; 
+    archivo << this->cantidadAccesorios << ", ";
+    archivo << this->totalVehiculos << ", ";
+    archivo << this->totalAccesorios << ", ";
+    archivo << this->calcularValorDescuentoVehiculos() << ", ";
+    archivo << this->totalVenta;
     archivo.close();
     std::cout << "\n\nBoleta emitida exitosamete\n\n";
     this->limpiarBoleta();
@@ -299,6 +320,18 @@ void venta::imprimirArchivo(){
 void venta::limpiarBoleta(){
     this->nombre = "";
     this->run = "";
+    for (accesorio* accesorio_actual : this->listaAccesorios){
+        delete accesorio_actual;
+    }
+    for (vehiculo* vehiculo_actual : this->listaVehiculos){
+        delete vehiculo_actual;
+    }
     this->listaAccesorios.clear();
     this->listaVehiculos.clear();
+    this->totalVehiculos = 0;
+    this->totalAccesorios = 0;
+    this->cantidadVehiculos = 0;
+    this->cantidadAccesorios = 0;
+    this->descuento = 0;
+    this->totalVenta = 0;
 }

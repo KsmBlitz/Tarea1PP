@@ -14,22 +14,24 @@ class venta {
         std::string run;
         std::vector<vehiculo*> listaVehiculos;
         std::vector<accesorio*> listaAccesorios;
-        int totalVehiculos = calcularValorTotalVehiculos();
-        int totalAccesorios = calcularValorTotalAccesorios();
-        int cantidadVehiculos = calcularCantidadTotalVehiculos();
-        int cantidadAccesorios = calcularCantidadTotalAccesorios();
-        float descuento = calcularDescuento();
-        int totalVenta = totalVehiculos*descuento + totalAccesorios; ;
+        int totalVehiculos;
+        int totalAccesorios;
+        int cantidadVehiculos;
+        int cantidadAccesorios;
+        double descuento;
+        int totalVenta;
     public:
         venta();
         ~venta();
-        int calcularValorTotalVehiculos();
+
+        int calcularValorTotalVehiculos(); 
         int calcularValorTotalAccesorios();
+        int calcularValorDescuentoVehiculos();
 
         int calcularCantidadTotalVehiculos();
         int calcularCantidadTotalAccesorios();
 
-        int calcularDescuento();
+        double calcularDescuento();
         void setRun(std::string vrun);
         void setNombre(std::string vnombre);
         void agregar_vehiculo(vehiculo* vvehiculo);
@@ -44,6 +46,7 @@ class venta {
 
         void opcionAContinuacion();
 
+        void actualizarInformacion();
         void imprimirArchivo();
 
         void limpiarBoleta();

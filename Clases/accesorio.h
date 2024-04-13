@@ -7,7 +7,7 @@
 class accesorio {
     private:
     std::string nombre;
-    int precio = calcular_valor();
+    int precio;
     int unidades;
 
     public:

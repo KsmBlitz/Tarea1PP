@@ -1,13 +1,19 @@
 #include "accesorio.h"
 
+
+accesorio::~accesorio(){
+
+}
+
 //Utilizar una V antes del nombre de la variable para diferenciar entre valores ya existentes y valores nuevos
 accesorio::accesorio(std::string vnombre, int vunidades){
     this->nombre = vnombre;
     this->unidades = vunidades;
+    this->precio = this->calcular_valor();
 }
 
 void accesorio::mostrarse(){
-    std::cout << "\n\nNombre:" << this->nombre << "\nUnidades: " << this->unidades;
+    std::cout << "\n\nNombre: " << this->nombre << "\nUnidades: " << this->unidades;
     std::cout << "\nPrecio: " << this->calcular_valor_total();
 }
 

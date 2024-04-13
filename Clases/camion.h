@@ -8,7 +8,7 @@ class camion : public vehiculo {
     
     public:
         camion(std::string vmarca, std::string vremoto, int vfecha_fabriacion, int vunidades);
-        ~camion();
+        virtual ~camion() override;
         int calcular_valor() override;
 };
 

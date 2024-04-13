@@ -9,7 +9,7 @@ class moto : public vehiculo{
 
     public:
         moto(std::string vmarca,std::string vremoto,int vanio_fabriacion, int vunidades);
-        ~moto();
+        virtual ~moto() override;
         int calcular_valor() override;
 };
 

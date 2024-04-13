@@ -16,8 +16,10 @@ int vehiculo::getUnidades(){
 }
 
 void vehiculo::mostrarse(){
-    std::cout <<"\n\nMarca: "<< this->marca << "\nRuedas: " << this->ruedas;
-    std::cout <<"\nControl remoto: " << this->remoto << "\nUnidades: " << this->ruedas;
+    std::cout <<"\n\nMarca: "<< this->marca;
+    std::cout << "\nRuedas: " << this->ruedas;
+    std::cout <<"\nControl remoto: " << this->remoto;
+    std::cout << "\nUnidades: " << this->unidades;
     std::cout <<"\nPrecio: " << this->calcular_valor_total();
 }
 
