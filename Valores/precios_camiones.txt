@@ -1,0 +1,5 @@
+Volvo: 100000
+Iveco: 85000
+Mercedes: 110000
+MAN: 105000
+Scania: 95000

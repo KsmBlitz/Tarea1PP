@@ -1,0 +1,6 @@
+Yamaha: 14000
+Susuki: 8000
+Honda: 15000
+KTM: 5000
+BMW: 18000
+Kawasaki: 13000

@@ -1,0 +1,6 @@
+Toyota: 19000
+Hyunday: 16000 
+Susuki: 12000 
+Ford: 17000 
+Chevrolet: 18000 
+Honda: 21000
