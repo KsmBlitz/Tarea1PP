@@ -277,10 +277,12 @@ void venta::finalizarCompra(){
     std::string run;
     std::string nombre;
     std::cout << "\nIngrese nombre del cliente: ";
-    std::cin >> nombre;
+    std::getline(std::cin, nombre);
     this->setNombre(nombre);
+    std::cin.clear();
     std::cout << "\nIngrese run cliente: ";
-    std::cin >> run;
+    std::getline(std::cin,run);
+    std::cin.clear();
     this->setRun(run);
 
     this->imprimirArchivo(); 
@@ -298,9 +300,7 @@ void venta::actualizarInformacion(){
 
 
 void venta::imprimirArchivo(){
-    std::cout <<"actualizano";
     this->actualizarInformacion();
-    std::cout <<"actualizado";
     std::ofstream archivo("Clientes.txt",std::ios::app);
     archivo << std::endl;
     archivo << this->nombre << ", ";
