@@ -276,13 +276,12 @@ void venta::menuVentaAccesorio(){
 void venta::finalizarCompra(){
     std::string run;
     std::string nombre;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cout << "\nIngrese nombre del cliente: ";
     std::getline(std::cin, nombre);
     this->setNombre(nombre);
-    std::cin.clear();
     std::cout << "\nIngrese run cliente: ";
     std::getline(std::cin,run);
-    std::cin.clear();
     this->setRun(run);
 
     this->imprimirArchivo(); 

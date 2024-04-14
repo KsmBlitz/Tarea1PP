@@ -8,6 +8,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <limits>
 
 std::map<std::string, int> cargar_valores(std::string filename);
 
